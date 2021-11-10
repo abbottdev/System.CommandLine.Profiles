@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <PackageId>CommandLine.Profiles</PackageId>
+    <Version>0.0.1-alpha</Version>
+    <Authors>James Abbott</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>system commandline profile zsh bash environment variable</PackageTags>
+    <Description>
+      This library is intended to make setting environment variables in a cross-platform way more friendly. It supports multiple shells, currently:
+        - Windows (User)
+        - MacOS
+          - Bash
+          - Zsh
+        - Linux
+          - Bash
+          - Zsh
+    </Description>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/abbottdev/System.CommandLine.Profiles</RepositoryUrl>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>

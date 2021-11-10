@@ -1,0 +1,29 @@
+name: Publish Package
+
+on: workflow_dispatch
+
+jobs:
+  
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 5.0.x
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
+      - name: Pack
+        working-directory: src/System.CommandLine.Profiles
+        run: dotnet pack --configuration Release
+      - name: Push
+        working-directory: src/System.CommandLine.Profiles/bin/Release/
+        run: dotnet nuget push  "*.nupkg" -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json 
+
+
